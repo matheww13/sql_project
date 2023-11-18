@@ -1,4 +1,4 @@
-# sql_project
+﻿# sql_project
 SQL Project for engeto data academy 
 
 **Úvod do projektu**
@@ -16,3 +16,8 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
 4. Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
 5. Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+
+**Odpovědi**
+
+1. V průběhu let mzdy v některých odvětvích i klesají (mezi roky 2006 a 2018 mzdy poklesly v patnácti odvětví z celkových devatenácti sledovaných). Při celkovém porovnání mezd mezi rokem 2006 a 2018 příjmy ale vždy vzrostly.
+2. 
