@@ -10,11 +10,17 @@ CREATE TABLE t_matej_tvrznik_project_SQL_primary_final AS (
 	ORDER BY cp.industry_branch_code, cp.payroll_year
 );
 
-SELECT *
-FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
-
 EXPLAIN t_matej_tvrznik_project_SQL_primary_final 
 
 ALTER TABLE t_matej_tvrznik_project_SQL_primary_final 
 MODIFY COLUMN category_code VARCHAR(255);
 
+INSERT INTO t_matej_tvrznik_project_SQL_primary_final (category_code, name, value, unit_value, year)
+	SELECT cp.category_code, cpc.name,round(AVG(cp.value), 2), CONCAT('Kč/', cpc.price_value, ' ', cpc.price_unit) ,YEAR(date_from)
+	FROM czechia_price cp 
+	JOIN czechia_price_category cpc ON cp.category_code = cpc.code 
+	GROUP BY cpc.name, year(cp.date_from)
+;
+
+SELECT *
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf ;
