@@ -9,3 +9,12 @@ CREATE TABLE t_matej_tvrznik_project_SQL_primary_final AS (
 	GROUP BY cpib.name, cp.payroll_year 
 	ORDER BY cp.industry_branch_code, cp.payroll_year
 );
+
+SELECT *
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+
+EXPLAIN t_matej_tvrznik_project_SQL_primary_final 
+
+ALTER TABLE t_matej_tvrznik_project_SQL_primary_final 
+MODIFY COLUMN category_code VARCHAR(255);
+
