@@ -1,3 +1,4 @@
+-- odvětví kde došlo k poklesu příjmů -- 
 SELECT
 	name,
 	value,
@@ -18,7 +19,7 @@ FROM (
 					FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 					WHERE unit_value = 'Kč/month'
 ) AS subquery 
-WHERE up_or_down = FALSE 
+WHERE up_or_down = FALSE  
 GROUP BY name
 ORDER BY name
 ;
@@ -50,5 +51,9 @@ GROUP BY name, `year`
 ORDER BY name;
 
 
+-- počet odvětví --
+SELECT COUNT(DISTINCT name) AS 'celkový počet odvětví'
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+WHERE unit_value  = 'Kč/month'
  
 
