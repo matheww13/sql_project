@@ -20,4 +20,4 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 **Odpovědi**
 
 1. V průběhu let mzdy v některých odvětvích i klesají (mezi roky 2006 a 2018 mzdy poklesly v patnácti odvětví z celkových devatenácti sledovaných). Při celkovém porovnání mezd mezi rokem 2006 a 2018 příjmy ale vždy vzrostly.
-2. 
+2. První a poslední společné sledované období cen a mezd je rok 2006 a 2018. S nejvyšší mzdou v roce 2006 jsme schopni koupit 2835 litrů mléka nebo 2480,6 kilo chleba. V roce 2018 jsme s nejvyšší mzdou schopni koupit 2805 litrů mléka nebo 2337.5 kilo chleba.
