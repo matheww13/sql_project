@@ -24,3 +24,25 @@ INSERT INTO t_matej_tvrznik_project_SQL_primary_final (category_code, name, valu
 
 SELECT *
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf ;
+
+
+-- kontrola že jsou všechna data obsahují všechny roky mezi 2006 a 2018 --
+SELECT
+    name,
+    count(name),
+    year
+FROM
+    t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+WHERE YEAR BETWEEN 2006 AND 2018
+GROUP BY name
+HAVING count(name) != 13 
+;
+   
+-- -> data pro Jakostní víno bílé jsou neúplná, z tabulky smažeme --
+
+DELETE FROM t_matej_tvrznik_project_SQL_primary_final 
+WHERE name = 'Jakostní víno bílé';
+
+   
+
+
