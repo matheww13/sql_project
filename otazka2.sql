@@ -1,3 +1,52 @@
+-- kolik litrů mléka je možné koupit s nejvyšší mzdou v roce 2006 -- 
+SELECT	tmtpspf.value AS 'Cena mléka v roce 2006',
+		tmtpspf.unit_value,
+		MAX(tmtpspf2.value) AS 'Nejvyšší mzda za rok 2006',
+		tmtpspf2.unit_value,
+		MAX(tmtpspf2.value)/tmtpspf.value AS 'Kolik litrů je možné koupit'
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+JOIN t_matej_tvrznik_project_SQL_primary_final tmtpspf2 ON tmtpspf.`year` = tmtpspf2.`year` 
+WHERE tmtpspf.name LIKE '%Mleko%' 
+	  AND tmtpspf.YEAR = 2006;
+		 
+-- kolik litrů mléka je možné koupit s nejvyšší mzdou v roce 2018 -- 
+SELECT	tmtpspf.value AS 'Cena mléka v roce 2018',
+		tmtpspf.unit_value,
+		MAX(tmtpspf2.value) AS 'Nejvyšší mzda za rok 2018',
+		tmtpspf2.unit_value,
+		MAX(tmtpspf2.value)/tmtpspf.value AS 'Kolik litrů je možné koupit'
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+JOIN t_matej_tvrznik_project_SQL_primary_final tmtpspf2 ON tmtpspf.`year` = tmtpspf2.`year` 
+WHERE tmtpspf.name LIKE '%Mleko%' 
+	  AND tmtpspf.YEAR = 2018;
+		 
+		
+-- kolik kg chleba je možné koupit s nejvyšší mzdou v roce 2006 -- 
+SELECT	tmtpspf.value AS 'Cena chleba v roce 2006',
+		tmtpspf.unit_value,
+		MAX(tmtpspf2.value) AS 'Nejvyšší mzda za rok 2006',
+		tmtpspf2.unit_value,
+		MAX(tmtpspf2.value)/tmtpspf.value AS 'Kolik kg je možné koupit'
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+JOIN t_matej_tvrznik_project_SQL_primary_final tmtpspf2 ON tmtpspf.`year` = tmtpspf2.`year` 
+WHERE tmtpspf.name LIKE '%Chleb%' 
+	  AND tmtpspf.YEAR = 2006;
+
+-- kolik kg chleba je možné koupit s nejvyšší mzdou v roce 2018 -- 
+SELECT	tmtpspf.value AS 'Cena chleba v roce 2018',
+		tmtpspf.unit_value,
+		MAX(tmtpspf2.value) AS 'Nejvyšší mzda za rok 2018',
+		tmtpspf2.unit_value,
+		MAX(tmtpspf2.value)/tmtpspf.value AS 'Kolik kg je možné koupit'
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+JOIN t_matej_tvrznik_project_SQL_primary_final tmtpspf2 ON tmtpspf.`year` = tmtpspf2.`year` 
+WHERE tmtpspf.name LIKE '%Chleb%' 
+	  AND tmtpspf.YEAR = 2018;
+		
+
+	 
+
+-- Jednotlivé položky a jejich cena/mzdy a jejich výška pro kontrolu --
 -- 			MZDA 			--	
 -- první srovnané období (2006) max mzda --
 SELECT MAX(value) AS 'Nejvyšší mzda za rok 2006'
@@ -31,12 +80,3 @@ WHERE name LIKE '%Chleb%' AND YEAR = 2006;
 SELECT value AS 'Nejvyšší cena cleba v roce 2018', unit_value 
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE name LIKE '%Chleb%' AND YEAR = 2018;
-
-
-SELECT *
-FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
-
-
-SELECT *
-FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
-WHERE `year` = 2006
