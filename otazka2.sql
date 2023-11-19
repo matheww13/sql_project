@@ -11,27 +11,32 @@ WHERE YEAR=2018 AND unit_value = 'Kč/month';
 
 
 --			MLÉKO			--
--- nejvyšší cena za litr mléka v roce 2006 --
-SELECT max(value) AS 'Nejvyšší cena mléka v roce 2006', unit_value 
+-- cena za litr mléka v roce 2006 --
+SELECT value AS 'Nejvyšší cena mléka v roce 2006', unit_value 
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE name LIKE '%Mléko%' AND YEAR = 2006;
 
--- nejvyšší cena za litr mléka v roce 2018 --
-SELECT max(value) AS 'Nejvyšší cena mléka v roce 2018', unit_value 
+-- cena za litr mléka v roce 2018 --
+SELECT value AS 'Nejvyšší cena mléka v roce 2018', unit_value 
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE name LIKE '%Mléko%' AND YEAR = 2018;
 
 --			CHLEBA			--
--- nejvyšší cena za kg chleba v roce 2006 --
-SELECT max(value) AS 'Nejvyšší cena cleba v roce 2006', unit_value 
+-- cena za kg chleba v roce 2006 --
+SELECT value AS 'Nejvyšší cena cleba v roce 2006', unit_value 
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE name LIKE '%Chleb%' AND YEAR = 2006;
 
--- nejvyšší cena za kg chleba v roce 2018 --
-SELECT max(value) AS 'Nejvyšší cena cleba v roce 2018', unit_value 
+-- cena za kg chleba v roce 2018 --
+SELECT value AS 'Nejvyšší cena cleba v roce 2018', unit_value 
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE name LIKE '%Chleb%' AND YEAR = 2018;
 
 
 SELECT *
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+
+
+SELECT *
+FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
+WHERE `year` = 2006
