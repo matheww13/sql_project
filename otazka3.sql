@@ -3,7 +3,7 @@ SELECT
 	name,
 	value,
 	unit_value,
-	SUM(narust_cen_percent) AS sum_narust_cen_percent
+	avg(narust_cen_percent) AS avg_narust_cen_percent
 FROM 
 	(SELECT 
 		name,
@@ -18,7 +18,7 @@ FROM
 	WHERE CHAR_LENGTH(category_code) > 1 
 	ORDER BY name, YEAR) AS sub
 GROUP BY name
-ORDER BY sum_narust_cen_percent 
+ORDER BY avg_narust_cen_percent 
 LIMIT 1;
 
 
@@ -33,3 +33,5 @@ FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf
 WHERE CHAR_LENGTH(category_code) > 1 
 ORDER BY name, YEAR
 ;
+
+
