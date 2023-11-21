@@ -25,4 +25,5 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 4. Existuje. Potraviny výrazně zdražili oproti mzdám v roce 2007 (meziroční nárůst je o 52,41 % vyšší u potravin než u mzdy), 2008 (o 13,86 %), 2011 (o 122,51 %), 2012 (o 189,77 %) a nejvíce v roce 2013 kdy potraviny zdražili o 5,95% ale mzdy se o 0,78% snížili což činí rozdíl 866,62 %.  
 
 ** Pozn. **
-Z dat bylo nutné smazat potraviny, které neměly úplná data pro všechny zkoumané roky. Jednalo se o Jakostní víno bílé, které mělo jako jediné dostupná data pouze mezi roky 2015 a 2018
+Z dat bylo nutné smazat potraviny, které neměly úplná data pro všechny zkoumané roky. Jednalo se o Jakostní víno bílé, které mělo jako jediné dostupná data pouze mezi roky 2015 a 2018.
+Další chybějící data bylo nutné odstranit při vytváření druhé tabulky pro evropské státy, kdy některé státy neměly žádné hodnoty u hledaného HDP a gini. Další odstranění dat proběhlo poté kdy některé evropské státy neměly data ze všech porovnávaných let. 
