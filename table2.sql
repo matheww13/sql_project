@@ -27,11 +27,25 @@ FROM t_matej_tvrznik_project_SQL_secondary_final tmtpssf
 -- kontrola že jsou všechna data obsahují všechny roky mezi 2006 a 2018 --
 SELECT
     country ,
-    count(country),
-    year
+    count(country)
 FROM
     t_matej_tvrznik_project_SQL_secondary_final
-WHERE YEAR BETWEEN 2006 AND 2018
 GROUP BY country 
 HAVING count(country) != 13
 ;
+
+
+-- odstranění těch zemí, které nemají dostatečná data pro porovnání mezi všemi roky -- 
+DELETE FROM t_matej_tvrznik_project_SQL_secondary_final 
+WHERE country = ANY(SELECT
+    country
+FROM
+    t_matej_tvrznik_project_SQL_secondary_final
+GROUP BY country 
+HAVING count(country) != 13)
+ ;
+
+-- kontrola po odstranění --
+SELECT country, COUNT(country) 
+FROM t_matej_tvrznik_project_SQL_secondary_final tmtpssf 
+GROUP BY country ;
