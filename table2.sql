@@ -33,4 +33,5 @@ FROM
     t_matej_tvrznik_project_SQL_secondary_final
 WHERE YEAR BETWEEN 2006 AND 2018
 GROUP BY country 
+HAVING count(country) != 13
 ;
