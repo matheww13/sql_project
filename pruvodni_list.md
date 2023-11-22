@@ -23,6 +23,7 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 2. První a poslední společné sledované období cen a mezd je rok 2006 a 2018. S nejvyšší mzdou v roce 2006 jsme schopni koupit 2835 litrů mléka nebo 2480,6 kilo chleba. V roce 2018 jsme s nejvyšší mzdou schopni koupit 2805 litrů mléka nebo 2337.5 kilo chleba.
 3. Potravina s nejnižším meziročním procentuálním nárůstem je Cukr krystalový.
 4. Existuje. Potraviny výrazně zdražili oproti mzdám v roce 2007 (meziroční nárůst je o 52,41 % vyšší u potravin než u mzdy), 2008 (o 13,86 %), 2011 (o 122,51 %), 2012 (o 189,77 %) a nejvíce v roce 2013 kdy potraviny zdražili o 5,95% ale mzdy se o 0,78% snížili což činí rozdíl 866,62 %.  
+5. Ano HDP má vliv na změny ve mzdách i v cenách potravin. Z dat ale můžeme vyčíst, že se tyto změny projevují i se zpožděním. 
 
 ** Pozn. **
 Z dat bylo nutné smazat potraviny, které neměly úplná data pro všechny zkoumané roky. Jednalo se o Jakostní víno bílé, které mělo jako jediné dostupná data pouze mezi roky 2015 a 2018.
