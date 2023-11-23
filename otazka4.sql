@@ -1,4 +1,4 @@
--- vytvorit mezirocni narust cen vsech potravin/mezd a porovnat je v % --
+
 -- průměrný meziroční narust cen potravin v % za jednotlivé roky --
 SELECT
 	YEAR,
@@ -40,7 +40,7 @@ GROUP BY YEAR
 ORDER BY YEAR  ;
 
 
--- spojení tabulek do jedné s použitím with --
+-- spojení tabulek do jedné s použitím with, kde jsou zobrazeny pouze roky kdy potraviny narostly více než mzdy a o kolik--
 
 WITH cat AS (
     SELECT
