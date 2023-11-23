@@ -40,7 +40,26 @@ GROUP BY YEAR
 ORDER BY YEAR  ;
 
 
--- spojení tabulek do jedné --
+-- spojení tabulek do jedné s použitím with --
+
+WITH cat AS (
+    SELECT
+        name,
+        value,
+        unit_value,
+        category_code,
+        YEAR,
+        CASE
+            WHEN YEAR = 2006 THEN NULL
+            ELSE ((value - LAG(value, 1) OVER (ORDER BY name, YEAR)) / LAG(value, 1) OVER (ORDER BY name, YEAR)) * 100
+        END AS narust_percent
+    FROM
+        t_matej_tvrznik_project_SQL_primary_final tmtpspf
+    WHERE
+        CHAR_LENGTH(category_code) IN (1, 6, 7)
+    ORDER BY
+        name, YEAR
+)
 SELECT
     t1.YEAR,
     t1.avg_narust_cen_percent AS avg_narust_cen_percent,
@@ -49,23 +68,10 @@ SELECT
 FROM
     (SELECT
         YEAR,
-        AVG(narust_cen_percent) AS avg_narust_cen_percent
+        AVG(narust_percent) AS avg_narust_cen_percent
     FROM
-        (SELECT
-            name,
-            value,
-            unit_value,
-            YEAR,
-            CASE
-                WHEN YEAR = 2006 THEN NULL
-                ELSE ((value - LAG(value, 1) OVER (ORDER BY name, YEAR)) / LAG(value, 1) OVER (ORDER BY name, YEAR)) * 100
-            END AS narust_cen_percent
-        FROM
-            t_matej_tvrznik_project_SQL_primary_final tmtpspf
-        WHERE
-            CHAR_LENGTH(category_code) > 1
-        ORDER BY
-            name, YEAR) AS sub
+        cat
+    WHERE CHAR_LENGTH(category_code) = 6 OR CHAR_LENGTH(category_code) = 7 
     GROUP BY
         YEAR
     ORDER BY
@@ -73,26 +79,13 @@ FROM
 JOIN
     (SELECT
         YEAR,
-        AVG(narust_mezd_percent) AS avg_narust_mezd_percent
+        AVG(narust_percent) AS avg_narust_mezd_percent
     FROM
-        (SELECT
-            name,
-            value,
-            unit_value,
-            YEAR,
-            CASE
-                WHEN YEAR = 2006 THEN NULL
-                ELSE ((value - LAG(value, 1) OVER (ORDER BY name, YEAR)) / LAG(value, 1) OVER (ORDER BY name, YEAR)) * 100
-            END AS narust_mezd_percent
-        FROM
-            t_matej_tvrznik_project_SQL_primary_final tmtpspf
-        WHERE
-            CHAR_LENGTH(category_code) < 2
-        ORDER BY
-            name, YEAR) AS sub
+        cat
+    WHERE CHAR_LENGTH(category_code) = 1
     GROUP BY
         YEAR
     ORDER BY
-        YEAR) AS t2
-ON t1.YEAR = t2.YEAR
+        YEAR) AS t2 ON t1.YEAR = t2.YEAR
+GROUP BY year
 HAVING t1.avg_narust_cen_percent > t2.avg_narust_mezd_percent AND Procentuální_rozdíl > 10;
