@@ -1,13 +1,5 @@
-SELECT *
-FROM czechia_region cr 
 
-SELECT *
-FROM czechia_district cd 
-
-SELECT *
-FROM countries c 
-
--- zobrazení hdp a hdp předešlého roku plus procentualní rozdíl mezi nimi --
+-- zobrazení hdp a hdp předešlého roku plus procentualní rozdíl mezi nimi pro čr --
 SELECT `year` , gdp,
 (lag(gdp, 1) OVER(ORDER BY YEAR)) AS 'predesly_rok',
 round(((gdp - (lag(gdp, 1) OVER(ORDER BY YEAR))) / abs((lag(gdp, 1) OVER(ORDER BY YEAR)))) * 100, 2) AS 'procentualni_rozdil'
@@ -40,7 +32,7 @@ SELECT
     t1.YEAR,
     t1.avg_narust_cen_percent,
     t2.avg_narust_mezd_percent,
-    c1.procentualni_rozdil
+    c1.hdp_rust
 FROM
     (SELECT
         YEAR,
@@ -70,7 +62,7 @@ JOIN
     (SELECT
         `year`,
         gdp,
-        ROUND(((gdp - LAG(gdp, 1) OVER (ORDER BY YEAR)) / ABS(LAG(gdp, 1) OVER (ORDER BY YEAR))) * 100, 2) AS 'procentualni_rozdil'
+        ROUND(((gdp - LAG(gdp, 1) OVER (ORDER BY YEAR)) / ABS(LAG(gdp, 1) OVER (ORDER BY YEAR))) * 100, 2) AS 'hdp_rust'
     FROM
         t_matej_tvrznik_project_SQL_secondary_final tmtpssf 
     WHERE
