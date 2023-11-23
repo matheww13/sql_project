@@ -1,3 +1,5 @@
+-- Kontakt na discord: the_law13 --
+
 CREATE TABLE t_matej_tvrznik_project_SQL_primary_final AS (
 	SELECT cp.industry_branch_code AS 'category_code', cpib.name AS 'name' , round(AVG(cp.value), 0) AS 'value', CONCAT(cpu.name, '/month') AS 'unit_value', cp.payroll_year AS 'year'
 	FROM czechia_payroll cp 
