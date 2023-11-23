@@ -28,4 +28,4 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 ** Pozn. **
 Z dat bylo nutné smazat potraviny, které neměly úplná data pro všechny zkoumané roky. Jednalo se o Jakostní víno bílé, které mělo jako jediné dostupná data pouze mezi roky 2015 a 2018.
 Další chybějící data bylo nutné odstranit při vytváření druhé tabulky pro evropské státy, kdy některé státy neměly žádné hodnoty u hledaného HDP a gini. Další odstranění dat proběhlo poté, kdy některé evropské státy neměly data ze všech porovnávaných let. 
-Pro lepší vizualizaci meziročních dat pro otázku č. 5 jsem si data zobrazil ve spojnicovém grafu v PowerBI a z tohoto grafu lépe usoudil odpověď na otázku.
+Pro lepší vizualizaci meziročních dat pro otázku č. 5 jsem si data zobrazil ve spojnicovém grafu v PowerBI a z tohoto grafu lépe usoudil odpověď na otázku (viz otazka5graf.pdf).
