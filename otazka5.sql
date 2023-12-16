@@ -1,8 +1,9 @@
 
 -- zobrazení hdp a hdp předešlého roku plus procentualní rozdíl mezi nimi pro čr --
-SELECT `year` , gdp,
-(lag(gdp, 1) OVER(ORDER BY YEAR)) AS 'predesly_rok',
-round(((gdp - (lag(gdp, 1) OVER(ORDER BY YEAR))) / abs((lag(gdp, 1) OVER(ORDER BY YEAR)))) * 100, 2) AS 'procentualni_rozdil'
+SELECT `year` AS 'Rok',
+		gdp AS 'HDP',
+		(lag(gdp, 1) OVER(ORDER BY YEAR)) AS 'predesly_rok',
+		round(((gdp - (lag(gdp, 1) OVER(ORDER BY YEAR))) / abs((lag(gdp, 1) OVER(ORDER BY YEAR)))) * 100, 2) AS 'procentualni_rozdil'
 FROM t_matej_tvrznik_project_SQL_secondary_final tmtpssf 
 WHERE country = 'Czech Republic'
 ORDER BY `year` ;
@@ -29,9 +30,9 @@ WITH cte AS (
         name, YEAR
 )
 SELECT
-    t1.YEAR,
-    t1.avg_narust_cen_percent,
-    t2.avg_narust_mezd_percent,
+    t1.YEAR AS 'Rok',
+    t1.avg_narust_cen_percent AS 'avg_narust_cen_procenta',
+    t2.avg_narust_mezd_percent AS 'avg_narust_mezd _procenta',
     c1.hdp_rust
 FROM
     (SELECT
