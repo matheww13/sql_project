@@ -46,7 +46,7 @@ ORDER BY name;
 
 
 -- počet odvětví --
-SELECT COUNT(DISTINCT name) AS 'celkový počet odvětví'
+SELECT COUNT(DISTINCT name) AS 'sum_every_industry'
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE unit_value  = 'Kč/month';
  
