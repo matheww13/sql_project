@@ -22,7 +22,7 @@ ORDER BY e.country , `year`
 );
 
 SELECT *
-FROM t_matej_tvrznik_project_SQL_secondary_final tmtpssf 
+FROM t_matej_tvrznik_project_SQL_secondary_final tmtpssf ;
 
 -- kontrola že jsou všechna data obsahují všechny roky mezi 2006 a 2018 --
 SELECT
