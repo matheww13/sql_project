@@ -1,9 +1,9 @@
 -- sum procentuálního nárůstu/poklesu ceny a získání odpovědi na otázku 3 --
 SELECT
-	name,
-	value,
-	unit_value,
-	avg(narust_cen_percent) AS avg_narust_cen_percent
+	name AS 'Název',
+	value AS 'Hodnota',
+	unit_value AS 'měna/jednotky',
+	avg(narust_cen_percent) AS avg_narust_cen_procenta
 FROM 
 	(SELECT 
 		name,
@@ -18,12 +18,15 @@ FROM
 	WHERE CHAR_LENGTH(category_code) > 1 
 	ORDER BY name, YEAR) AS sub
 GROUP BY name
-ORDER BY avg_narust_cen_percent 
+ORDER BY avg_narust_cen_procenta
 LIMIT 1;
 
 
 -- procentuální nárůst/pokles ceny mezi roky u jednotlivých kategorií jídla -- 
-SELECT name, value, unit_value, YEAR, 
+SELECT name AS 'Název',
+		value AS 'Hodnota',
+		unit_value AS 'měna/jednotky',
+		YEAR AS 'Rok', 
 		lag(value, 1) OVER(ORDER BY name,YEAR) AS 'predesly_rok', 
 		CASE
 			WHEN YEAR=2006 THEN NULL
