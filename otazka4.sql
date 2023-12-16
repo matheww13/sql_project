@@ -1,8 +1,8 @@
 
 -- průměrný meziroční narust cen potravin v % za jednotlivé roky --
 SELECT
-	YEAR,
-	AVG(narust_cen_percent) AS avg_narust_cen_percent
+	YEAR AS 'Rok',
+	AVG(narust_cen_percent) AS avg_narust_cen_procenta
 FROM 
 	(SELECT 
 		name,
@@ -21,8 +21,8 @@ ORDER BY YEAR  ;
 
 -- průměrný meziroční nárůst mezd v % za jednotlivé roky --
 SELECT
-	YEAR,
-	avg(narust_mezd_percent) AS avg_narust_mezd_percent
+	YEAR AS 'Rok',
+	avg(narust_mezd_percent) AS avg_narust_mezd_procenta
 FROM 
 	(SELECT 
 		name,
@@ -61,9 +61,9 @@ WITH cat AS (
         name, YEAR
 )
 SELECT
-    t1.YEAR,
-    t1.avg_narust_cen_percent AS avg_narust_cen_percent,
-    t2.avg_narust_mezd_percent AS avg_narust_mezd_percent,
+    t1.YEAR AS 'Rok',
+    t1.avg_narust_cen_percent AS avg_narust_cen_procenta,
+    t2.avg_narust_mezd_percent AS avg_narust_mezd_procenta,
     round(((t1.avg_narust_cen_percent - t2.avg_narust_mezd_percent) / abs(t2.avg_narust_mezd_percent)) * 100, 2) AS 'Procentuální_rozdíl'
 FROM
     (SELECT
@@ -87,5 +87,5 @@ JOIN
         YEAR
     ORDER BY
         YEAR) AS t2 ON t1.YEAR = t2.YEAR
-GROUP BY year
+GROUP BY t1.year
 HAVING t1.avg_narust_cen_percent > t2.avg_narust_mezd_percent AND Procentuální_rozdíl > 10;
