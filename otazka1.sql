@@ -14,7 +14,7 @@ FROM (
 					CASE 
 						WHEN YEAR = 2006 THEN NULL
 						WHEN value > LAG(value) OVER (ORDER BY name, `year`) THEN TRUE 
-					ELSE FALSE 
+						ELSE FALSE 
 					END AS 'up_or_down' 
 					FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 					WHERE unit_value = 'Kč/month'
@@ -37,7 +37,7 @@ SELECT
 		WHEN round(avg(value), 0) > LAG (round(avg(value), 0)) OVER ( 
   		ORDER BY name, year 
 		) THEN TRUE 
-	ELSE FALSE
+		ELSE FALSE
 	END AS 'Roste/klesa'
 FROM t_matej_tvrznik_project_SQL_primary_final tmtpspf 
 WHERE unit_value = 'Kč/month'
