@@ -1,7 +1,11 @@
 -- Kontakt na discord: the_law13 --
 
 CREATE TABLE t_matej_tvrznik_project_SQL_primary_final AS (
-	SELECT cp.industry_branch_code AS 'category_code', cpib.name AS 'name' , round(AVG(cp.value), 0) AS 'value', CONCAT(cpu.name, '/month') AS 'unit_value', cp.payroll_year AS 'year'
+	SELECT	cp.industry_branch_code AS 'category_code', 
+			cpib.name AS 'name',
+			round(AVG(cp.value), 0) AS 'value',
+			CONCAT(cpu.name, '/month') AS 'unit_value',
+			cp.payroll_year AS 'year'
 	FROM czechia_payroll cp 
 	JOIN czechia_payroll_calculation cpc ON cp.calculation_code = cpc.code
 	JOIN czechia_payroll_unit cpu ON cp.unit_code = cpu.code 
@@ -18,7 +22,11 @@ ALTER TABLE t_matej_tvrznik_project_SQL_primary_final
 MODIFY COLUMN category_code VARCHAR(255);
 
 INSERT INTO t_matej_tvrznik_project_SQL_primary_final (category_code, name, value, unit_value, year)
-	SELECT cp.category_code, cpc.name,round(AVG(cp.value), 2), CONCAT('Kč/', cpc.price_value, ' ', cpc.price_unit) ,YEAR(date_from)
+	SELECT	cp.category_code,
+			cpc.name,
+			round(AVG(cp.value), 2),
+			CONCAT('Kč/', cpc.price_value, ' ', cpc.price_unit),
+			YEAR(date_from)
 	FROM czechia_price cp 
 	JOIN czechia_price_category cpc ON cp.category_code = cpc.code 
 	GROUP BY cpc.name, year(cp.date_from)
