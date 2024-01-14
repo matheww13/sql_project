@@ -1,9 +1,9 @@
 
 -- zobrazení hdp a hdp předešlého roku plus procentualní rozdíl mezi nimi pro čr --
-SELECT `year` AS 'Rok',
-		gdp AS 'HDP',
-		(lag(gdp, 1) OVER(ORDER BY YEAR)) AS 'predesly_rok',
-		round(((gdp - (lag(gdp, 1) OVER(ORDER BY YEAR))) / abs((lag(gdp, 1) OVER(ORDER BY YEAR)))) * 100, 2) AS 'procentualni_rozdil'
+SELECT `year` AS 'Year',
+		gdp AS 'GDP',
+		(lag(gdp, 1) OVER(ORDER BY YEAR)) AS 'Last_year',
+		round(((gdp - (lag(gdp, 1) OVER(ORDER BY YEAR))) / abs((lag(gdp, 1) OVER(ORDER BY YEAR)))) * 100, 2) AS 'Percentage_difference'
 FROM t_matej_tvrznik_project_SQL_secondary_final tmtpssf 
 WHERE country = 'Czech Republic'
 ORDER BY `year` ;
@@ -30,10 +30,10 @@ WITH cte AS (
         name, YEAR
 )
 SELECT
-    t1.YEAR AS 'Rok',
-    t1.avg_narust_cen_percent AS 'avg_narust_cen_procenta',
-    t2.avg_narust_mezd_percent AS 'avg_narust_mezd _procenta',
-    c1.hdp_rust
+    t1.YEAR AS 'Year',
+    t1.avg_narust_cen_percent AS 'avg_price_increase_percent',
+    t2.avg_narust_mezd_percent AS 'avg_salary_increase_percent',
+    c1.GDP_growth
 FROM
     (SELECT
         YEAR,
@@ -63,7 +63,7 @@ JOIN
     (SELECT
         `year`,
         gdp,
-        ROUND(((gdp - LAG(gdp, 1) OVER (ORDER BY YEAR)) / ABS(LAG(gdp, 1) OVER (ORDER BY YEAR))) * 100, 2) AS 'hdp_rust'
+        ROUND(((gdp - LAG(gdp, 1) OVER (ORDER BY YEAR)) / ABS(LAG(gdp, 1) OVER (ORDER BY YEAR))) * 100, 2) AS 'GDP_growth'
     FROM
         t_matej_tvrznik_project_SQL_secondary_final tmtpssf 
     WHERE
