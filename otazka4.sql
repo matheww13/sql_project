@@ -1,8 +1,8 @@
 
 -- průměrný meziroční narust cen potravin v % za jednotlivé roky --
 SELECT
-	YEAR AS 'Rok',
-	AVG(narust_cen_percent) AS avg_narust_cen_procenta
+	YEAR AS 'Year',
+	AVG(narust_cen_percent) AS avg_price_increase_percent
 FROM 
 	(SELECT 
 		name,
@@ -21,8 +21,8 @@ ORDER BY YEAR  ;
 
 -- průměrný meziroční nárůst mezd v % za jednotlivé roky --
 SELECT
-	YEAR AS 'Rok',
-	avg(narust_mezd_percent) AS avg_narust_mezd_procenta
+	YEAR AS 'Year',
+	avg(narust_mezd_percent) AS avg_salary_increase_percent
 FROM 
 	(SELECT 
 		name,
@@ -61,10 +61,10 @@ WITH cat AS (
         name, YEAR
 )
 SELECT
-    t1.YEAR AS 'Rok',
-    t1.avg_narust_cen_percent AS avg_narust_cen_procenta,
-    t2.avg_narust_mezd_percent AS avg_narust_mezd_procenta,
-    round(t1.avg_narust_cen_percent - t2.avg_narust_mezd_percent, 2) AS 'Rozdíl'
+    t1.YEAR AS 'Year',
+    t1.avg_narust_cen_percent AS avg_price_increase_percent,
+    t2.avg_narust_mezd_percent AS avg_salary_increase_percent,
+    round(t1.avg_narust_cen_percent - t2.avg_narust_mezd_percent, 2) AS 'Difference'
 FROM
     (SELECT
         YEAR,
